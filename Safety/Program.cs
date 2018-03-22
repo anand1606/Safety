@@ -10,6 +10,8 @@ namespace Safety
 {
     static class Program
     {
+        public static bool OpenMDIFormOnClose { get; set; }
+        
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -22,7 +24,13 @@ namespace Safety
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
-            Application.Run(new Form1());
+            //Application.Run(new frmMain());
+            Application.Run(new frmLogin());
+
+            if (OpenMDIFormOnClose)
+            {
+                Application.Run(new frmMain());
+            }
         }
     }
 }
