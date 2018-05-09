@@ -33,7 +33,7 @@ namespace Safety
             stsUserID.Text = Utils.User.GUserID;
             stsUserDesc.Text = Utils.User.GUserName;
 
-            this.Text = "Contract Payroll System : (Server->" + tdb.DataSource + ")";
+            this.Text = "Safety System : (Server->" + tdb.DataSource + ")";
         }
 
         private void mnuUserRights_Click(object sender, EventArgs e)
@@ -81,7 +81,7 @@ namespace Safety
             mnuLogOff.Enabled = true;
 
             DataSet ds = new DataSet();
-            string sql = "select menuname from  Cont_MastFrm where formid in (select FormId from Cont_UserRights where UserId ='" + Utils.User.GUserID + "' and View1=1) order by seqid";
+            string sql = "select menuname from  MastFrm where formid in (select FormId from UserRights where UserId ='" + Utils.User.GUserID + "' and View1=1) order by seqid";
             ds = Utils.Helper.GetData(sql,cnstr);
             
             mnuUser.Enabled = true;
@@ -284,7 +284,7 @@ namespace Safety
 
         private void mnuAbout_Click(object sender, EventArgs e)
         {
-            string msg = "Contract Payroll System" + Environment.NewLine +
+            string msg = "Safety System" + Environment.NewLine +
                 "Version 2.1 " + Environment.NewLine +
                 "Design & Devloped By : Anand Acharya " + Environment.NewLine;
 
@@ -315,145 +315,7 @@ namespace Safety
             
         }
 
-        private void mnuOtherConfig_Click(object sender, EventArgs e)
-        {
-            Form t = Application.OpenForms["frmOtherConfig"];
-
-            if (t == null)
-            {
-                frmOtherConfig m = new frmOtherConfig();
-                m.defSet = true;
-                m.MdiParent = this;
-                m.Show();
-            }
-        }
-
         
-
-        private void mnuPayPeriod_Click(object sender, EventArgs e)
-        {
-            Form t = Application.OpenForms["frmPayPeriod"];
-
-            if (t == null)
-            {
-                frmPayPeriod m = new frmPayPeriod();
-                m.MdiParent = this;
-                m.Show();
-            }
-        }
-
-        private void mnuPayCyclePara_Click(object sender, EventArgs e)
-        {
-            frmOtherConfig m = new frmOtherConfig();
-            m.defSet = false;
-            m.MdiParent = this;
-            m.Show();
-        }
-
-        private void mnuImportEmp_Click(object sender, EventArgs e)
-        {
-            Form t = Application.OpenForms["frmImportEmp"];
-            if (t == null)
-            {
-                frmImportEmp m = new frmImportEmp();
-                m.MdiParent = this;
-                m.Show();
-            }
-        }
-
-        private void mnuImportAttd_Click(object sender, EventArgs e)
-        {
-            Form t = Application.OpenForms["frmImportAttd"];
-            if (t == null)
-            {
-                frmImportAttd m = new frmImportAttd();
-                m.MdiParent = this;
-                m.Show();
-            }
-        }
-
-        private void mnuMastEmp_Click(object sender, EventArgs e)
-        {
-            Form t = Application.OpenForms["frmEmpMaster"];
-            if (t == null)
-            {
-                frmEmpMaster m = new frmEmpMaster();
-                m.MdiParent = this;
-                m.Show();
-            }
-        }
-
-        private void mnuMthlyAttdProc_Click(object sender, EventArgs e)
-        {
-            Form t = Application.OpenForms["frmMthlyAttdProcess"];
-            if (t == null)
-            {
-                frmMthlyAttdProcess m = new frmMthlyAttdProcess();
-                m.MdiParent = this;
-                m.Show();
-            }
-        }
-
-        private void mnuMthlyAdj_Click(object sender, EventArgs e)
-        {
-            Form t = Application.OpenForms["frmMthlyAdj"];
-            if (t == null)
-            {
-                frmMthlyAdj m = new frmMthlyAdj();
-                m.MdiParent = this;
-                m.Show();
-            }
-        }
-
-        private void mnuMthlyDed_Click(object sender, EventArgs e)
-        {
-            Form t = Application.OpenForms["frmBulkDed"];
-            if (t == null)
-            {
-                frmBulkDed m = new frmBulkDed();
-                m.MdiParent = this;
-                m.Show();
-            }
-        }
-
-        private void mnuMthlyCalc_Click(object sender, EventArgs e)
-        {
-            Form t = Application.OpenForms["frmMthlyCalc"];
-            if (t == null)
-            {
-                frmMthlyCalc m = new frmMthlyCalc();
-                m.MdiParent = this;
-                m.Show();
-            }
-        }
-
-        private void mnuBulkBasicChng_Click(object sender, EventArgs e)
-        {
-            //mnuBulkBasicChng
-            Form t = Application.OpenForms["frmBulkBasicChng"];
-            if (t == null)
-            {
-                frmBulkBasicChng m = new frmBulkBasicChng();
-                m.MdiParent = this;
-                m.Show();
-            }
-        
-        
-        }
-
-        private void mnuRptMthlySalReg_Click(object sender, EventArgs e)
-        {
-
-            Form t = Application.OpenForms["frmReportsTemp"];
-            if (t == null)
-            {
-                frmReportsTemp m = new frmReportsTemp();
-                m.RptType = "SALREGDEF";
-                m.MdiParent = this;
-                m.Show();
-            }
-           
-        }
 
         private void mnuRptOthers_Click(object sender, EventArgs e)
         {
@@ -466,17 +328,62 @@ namespace Safety
             }
         }
 
-        private void mnuRptMthlyTPAReg_Click(object sender, EventArgs e)
+        private void mnuEmailConfig_Click(object sender, EventArgs e)
         {
-            Form t = Application.OpenForms["frmReportsTemp"];
+            Form t = Application.OpenForms["frmMastEmailConfig"];
             if (t == null)
             {
-                frmReportsTemp m = new frmReportsTemp();
-                m.RptType = "TPAREGDEF";
+                frmMastEmailConfig m = new frmMastEmailConfig();
                 m.MdiParent = this;
                 m.Show();
             }
         }
+
+        private void mnuVendorMast_Click(object sender, EventArgs e)
+        {
+            Form t = Application.OpenForms["frmMastVendor"];
+            if (t == null)
+            {
+                frmMastVendor m = new frmMastVendor();
+                m.MdiParent = this;
+                m.Show();
+            }
+        }
+
+        private void mnuReasonMast_Click(object sender, EventArgs e)
+        {
+            Form t = Application.OpenForms["frmMastReason"];
+            if (t == null)
+            {
+                frmMastViolation m = new frmMastViolation();
+                m.MdiParent = this;
+                m.Show();
+            }
+        }
+
+        private void mnuInspTypeMast_Click(object sender, EventArgs e)
+        {
+            Form t = Application.OpenForms["frmMastInspType"];
+            if (t == null)
+            {
+                frmMastInspType m = new frmMastInspType();
+                m.MdiParent = this;
+                m.Show();
+            }
+        }
+
+        private void mnuTranSafetyViolation_Click(object sender, EventArgs e)
+        {
+            Form t = Application.OpenForms["frmTranViolation"];
+            if (t == null)
+            {
+                frmTranViolation m = new frmTranViolation();
+                m.MdiParent = this;
+                m.Show();
+            }
+        }
+
+        
         
 
     }

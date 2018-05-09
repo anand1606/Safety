@@ -39,6 +39,7 @@
     <Reference Include="DevExpress.Sparkline.v13.1.Core" />
     <Reference Include="DevExpress.XtraBars.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v13.1" />
+    <Reference Include="DevExpress.XtraGrid.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Help_F1F2">
       <HintPath>..\..\Attendance\Help_F1F2.dll</HintPath>
     </Reference>
@@ -57,6 +58,12 @@
     <Compile Include="Classes\ClassGlobals.cs" />
     <Compile Include="Classes\Helper.cs" />
     <Compile Include="Classes\UNCAccessWithCredentials.cs" />
+    <Compile Include="Forms\frmChangePass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmChangePass.designer.cs">
+      <DependentUpon>frmChangePass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmConnection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +82,42 @@
     <Compile Include="Forms\frmMain.designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmMastInspType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMastInspType.designer.cs">
+      <DependentUpon>frmMastInspType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMastViolation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMastViolation.designer.cs">
+      <DependentUpon>frmMastViolation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMastEmailConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMastEmailConfig.designer.cs">
+      <DependentUpon>frmMastEmailConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMastVendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMastVendor.designer.cs">
+      <DependentUpon>frmMastVendor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmReports.designer.cs">
+      <DependentUpon>frmReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTranViolation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTranViolation.Designer.cs">
+      <DependentUpon>frmTranViolation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmUserRights.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +126,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\frmChangePass.resx">
+      <DependentUpon>frmChangePass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmConnection.resx">
       <DependentUpon>FrmConnection.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,9 +138,28 @@
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMastInspType.resx">
+      <DependentUpon>frmMastInspType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMastViolation.resx">
+      <DependentUpon>frmMastViolation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMastEmailConfig.resx">
+      <DependentUpon>frmMastEmailConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMastVendor.resx">
+      <DependentUpon>frmMastVendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmReports.resx">
+      <DependentUpon>frmReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTranViolation.resx">
+      <DependentUpon>frmTranViolation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmUserRights.resx">
       <DependentUpon>frmUserRights.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

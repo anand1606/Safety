@@ -111,7 +111,7 @@ namespace Safety.Classes
 
              //Setting WaterIP
             DataSet ds = new DataSet();
-            string sql = "select FormId from Cont_MastFrm where FormName ='" + FormName1.Trim() + "'";
+            string sql = "select FormId from MastFrm where FormName ='" + FormName1.Trim() + "'";
             
             ds = Utils.Helper.GetData(sql, Utils.Helper.constr);
             bool hasRows = ds.Tables.Cast<DataTable>()
@@ -125,7 +125,7 @@ namespace Safety.Classes
                 }
             }
 
-            sql = "Select top 1 * From Cont_UserRights where FormId = '" + FormID.ToString() + "' and Userid = '" + Utils.User.GUserID + "'";
+            sql = "Select top 1 * From UserRights where FormId = '" + FormID.ToString() + "' and Userid = '" + Utils.User.GUserID + "'";
             ds = new DataSet();
             ds = Utils.Helper.GetData(sql, Utils.Helper.constr);
             hasRows = ds.Tables.Cast<DataTable>()

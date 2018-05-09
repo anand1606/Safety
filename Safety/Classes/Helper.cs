@@ -439,7 +439,7 @@ namespace Utils
         {
             bool result = false;
 
-            string tablename = "Cont_UserRights";
+            string tablename = "UserRights";
             string sql = "Select " + FieldName + " From " + tablename + " where ModID ='" + ModID.ToString().Trim() + "' and UserID ='" + userid + "'";
             using(SqlConnection cn = new SqlConnection(connectionstr))
             {
