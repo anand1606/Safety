@@ -73,9 +73,9 @@ namespace Safety
 
             mnuAdmin.Enabled = true;
            
-            mnuMast.Enabled = true;        
-           
-            
+            mnuMast.Enabled = true;
+
+            mnuReports.Enabled = true;
             mnuTranS.Enabled = true;
             mnuChangePass.Enabled = true;
             mnuLogOff.Enabled = true;
@@ -107,7 +107,7 @@ namespace Safety
 
             this.mnuHelp.Enabled = true;
             this.mnuAbout.Enabled = true;
-           
+            
 
 
            
@@ -378,6 +378,17 @@ namespace Safety
             if (t == null)
             {
                 frmTranViolation m = new frmTranViolation();
+                m.MdiParent = this;
+                m.Show();
+            }
+        }
+
+        private void mnuToolsMast_Click(object sender, EventArgs e)
+        {
+            Form t = Application.OpenForms["frmMastTools"];
+            if (t == null)
+            {
+                frmMastTools m = new frmMastTools();
                 m.MdiParent = this;
                 m.Show();
             }

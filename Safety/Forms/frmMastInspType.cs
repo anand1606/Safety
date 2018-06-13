@@ -37,12 +37,12 @@ namespace Safety.Forms
 
             if (string.IsNullOrEmpty(txtInspTypeCode.Text))
             {
-                err = err + "Please Enter Cont Code" + Environment.NewLine;
+                err = err + "Please Enter Inspection Type ID" + Environment.NewLine;
             }
            
             if (string.IsNullOrEmpty(txtInspTypeDesc.Text))
             {
-                err = err + "Please Enter Contractor Name" + Environment.NewLine;
+                err = err + "Please Enter Inspection Type Desc" + Environment.NewLine;
             }
             
             return err;
@@ -106,7 +106,7 @@ namespace Safety.Forms
                     {
                         cn.Open();
                         cmd.Connection = cn;
-                        string sql = "Insert into MastInspType (InspTypeCode,InspDesc,AddDt,AddID) Values ('{0}','{1}',GetDate(),'{2}')";
+                        string sql = "Insert into MastInspType (InspTypeID,InspTypeDesc,AddDt,AddID) Values ('{0}','{1}',GetDate(),'{2}')";
                         sql = string.Format(sql,
                             txtInspTypeCode.Text.Trim().ToString().ToUpper(),
                             txtInspTypeDesc.Text.Trim().ToString(),
@@ -146,8 +146,8 @@ namespace Safety.Forms
                     {
                         cn.Open();
                         cmd.Connection = cn;
-                        string sql = "Update MastInspType Set InspDesc = '{0}',  UpdDt = GetDate(), UpdID = '{1}' " +
-                            " Where InspTypeCode = '{2}' ";
+                        string sql = "Update MastInspType Set InspTypeDesc = '{0}',  UpdDt = GetDate(), UpdID = '{1}' " +
+                            " Where InspTypeID = '{2}' ";
 
                         sql = string.Format(sql, txtInspTypeDesc.Text.ToString(),
                              Utils.User.GUserID,  txtInspTypeCode.Text.Trim()
@@ -205,19 +205,19 @@ namespace Safety.Forms
 
                 Help_F1F2.ClsHelp hlp = new Help_F1F2.ClsHelp();
                 string sql = "";
-                sql = "Select InspTypeCode,InspDesc From MastInspType Where 1 =1 ";
+                sql = "Select InspTypeID,InspTypeDesc From MastInspType Where 1 =1 ";
 
                
                 if (e.KeyCode == Keys.F1)
                 {
 
-                    obj = (List<string>)hlp.Show(sql, "InspTypeCode", "InspTypeCode", typeof(int), Utils.Helper.constr, "System.Data.SqlClient",
+                    obj = (List<string>)hlp.Show(sql, "InspTypeID", "InspTypeID", typeof(int), Utils.Helper.constr, "System.Data.SqlClient",
                    100, 300, 400, 600, 100, 100);
                 }
                 else
                 {
 
-                    obj = (List<string>)hlp.Show(sql, "InspDesc", "InspDesc", typeof(string), Utils.Helper.constr, "System.Data.SqlClient",
+                    obj = (List<string>)hlp.Show(sql, "InspTypeDesc", "InspTypeDesc", typeof(string), Utils.Helper.constr, "System.Data.SqlClient",
                    100, 300, 400, 600, 100, 100);
                 }
 
@@ -262,11 +262,11 @@ namespace Safety.Forms
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
                    
-                    txtInspTypeCode.Text = dr["InspTypeCode"].ToString();
-                    txtInspTypeDesc.Text = dr["InspDesc"].ToString();
+                    txtInspTypeCode.Text = dr["InspTypeID"].ToString();
+                    txtInspTypeDesc.Text = dr["InspTypeDesc"].ToString();
                                    
                     mode = "OLD";
-                    oldCode =  dr["InspTypeCode"].ToString();
+                    oldCode =  dr["InspTypeID"].ToString();
 
                 }
             }
