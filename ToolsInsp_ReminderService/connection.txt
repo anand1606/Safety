@@ -1,0 +1,1 @@
+﻿Server=172.16.12.14;Database=Safety;User Id=ipu_safety;Password=ipu_safety;
