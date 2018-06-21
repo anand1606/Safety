@@ -49,6 +49,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtCCTo = new DevExpress.XtraEditors.TextEdit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSMTPPort.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHRSentTo.Properties)).BeginInit();
@@ -58,10 +60,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAccountPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmailAccount.Properties)).BeginInit();
             this.grpUserRights.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCCTo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtCCTo);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtSMTPPort);
             this.groupBox1.Controls.Add(this.label1);
@@ -106,9 +111,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(14, 171);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 15);
+            this.label1.Size = new System.Drawing.Size(91, 15);
             this.label1.TabIndex = 22;
-            this.label1.Text = "HRErSentTo";
+            this.label1.Text = "HRER - SentTo";
             // 
             // txtHRSentTo
             // 
@@ -141,18 +146,18 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(14, 145);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 15);
+            this.label7.Size = new System.Drawing.Size(100, 15);
             this.label7.TabIndex = 18;
-            this.label7.Text = "FinanceSentTo";
+            this.label7.Text = "Finance - SentTo";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(14, 119);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 15);
+            this.label8.Size = new System.Drawing.Size(62, 15);
             this.label8.TabIndex = 16;
-            this.label8.Text = "EMailID";
+            this.label8.Text = "Sender ID";
             // 
             // txtFinSentTo
             // 
@@ -176,9 +181,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(14, 43);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 15);
+            this.label5.Size = new System.Drawing.Size(150, 15);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Account Password";
+            this.label5.Text = "Sender Account Password";
             // 
             // txtAccountPassword
             // 
@@ -205,9 +210,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(14, 17);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 15);
+            this.label3.Size = new System.Drawing.Size(128, 15);
             this.label3.TabIndex = 11;
-            this.label3.Text = "EMail Account";
+            this.label3.Text = "Email Sender Account";
             // 
             // btnAdd
             // 
@@ -277,6 +282,24 @@
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 197);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 15);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Common - CC To";
+            // 
+            // txtCCTo
+            // 
+            this.txtCCTo.Location = new System.Drawing.Point(158, 196);
+            this.txtCCTo.Name = "txtCCTo";
+            this.txtCCTo.Properties.Mask.ShowPlaceHolders = false;
+            this.txtCCTo.Properties.MaxLength = 200;
+            this.txtCCTo.Size = new System.Drawing.Size(540, 20);
+            this.txtCCTo.TabIndex = 7;
+            // 
             // frmMastEmailConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -299,6 +322,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAccountPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmailAccount.Properties)).EndInit();
             this.grpUserRights.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtCCTo.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -326,5 +350,7 @@
         private DevExpress.XtraEditors.TextEdit txtSMTPPort;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.TextEdit txtHRSentTo;
+        private System.Windows.Forms.Label label4;
+        private DevExpress.XtraEditors.TextEdit txtCCTo;
     }
 }

@@ -66,7 +66,7 @@ namespace Safety.Forms
             txtHRSentTo.Text = "";
             txtEmailID.Text = "";
             txtSMTPPort.Text = "";
-
+            txtCCTo.Text = "";
             oldCode = "";
         }
 
@@ -121,7 +121,7 @@ namespace Safety.Forms
                     {
                         cn.Open();
                         cmd.Connection = cn;
-                        string sql = "Insert into EMailConfig ( EmailAccount,AccountPassword,EmailID,smtpHost,smtpport,SentFinanceTo,SentHRTo,AddDt,AddID) Values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}',GetDate(),'{7}')";
+                        string sql = "Insert into EMailConfig ( EmailAccount,AccountPassword,EmailID,smtpHost,smtpport,SentFinanceTo,SentHRTo,AddDt,AddID,SentCCto) Values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}',GetDate(),'{7}','{8}')";
                         sql = string.Format(sql,
                             txtEmailAccount.Text.Trim().ToString().ToUpper(),
                             txtAccountPassword.Text.Trim().ToString(),
@@ -130,7 +130,9 @@ namespace Safety.Forms
                             txtSMTPPort.Text.Trim().ToString(),
                             txtFinSentTo.Text.Trim().ToString(),
                             txtHRSentTo.Text.Trim().ToString(),
-                            Utils.User.GUserID);
+                            Utils.User.GUserID,
+                            txtCCTo.Text.Trim().ToString()
+                            );
 
                         cmd.CommandText = sql;
                         cmd.ExecuteNonQuery();
@@ -164,7 +166,7 @@ namespace Safety.Forms
                     {
                         cn.Open();
                         cmd.Connection = cn;
-                        string sql = "Update EMailConfig Set AccountPassword = '{0}', EmailID='{1}',smtpHost='{2}',smtpport='{3}', SentFinanceTo = '{4}', SentHRTo = '{5}' , UpdDt = GetDate(), UpdID = '{6}' " +
+                        string sql = "Update EMailConfig Set AccountPassword = '{0}', EmailID='{1}',smtpHost='{2}',smtpport='{3}', SentFinanceTo = '{4}', SentHRTo = '{5}' , UpdDt = GetDate(), UpdID = '{6}' , CCTo = '{7}' " +
                             " Where EmailAccount = '{7}' ";
 
                         sql = string.Format(sql, txtAccountPassword.Text.ToString(),                             
@@ -173,7 +175,8 @@ namespace Safety.Forms
                              txtSMTPPort.Text.Trim().ToString(),
                              txtFinSentTo.Text.Trim().ToString(),
                              txtHRSentTo.Text.Trim().ToString(),
-                             Utils.User.GUserID,  txtEmailAccount.Text.Trim()
+                             Utils.User.GUserID,  txtEmailAccount.Text.Trim(),
+                             txtCCTo.Text.Trim().ToString()
 
                            );
 
@@ -215,9 +218,7 @@ namespace Safety.Forms
         {
             this.Close();
         }
-
-       
-        
+                
         private void txtEmailAccount_KeyDown(object sender, KeyEventArgs e)
         {
             
@@ -292,6 +293,7 @@ namespace Safety.Forms
                     txtFinSentTo.Text = dr["SentFinanceTo"].ToString();
                     txtHRSentTo.Text = dr["SentHRTo"].ToString();
                     txtSMTPPort.Text = dr["smtpport"].ToString();
+                    txtCCTo.Text = dr["CCTo"].ToString();
                     mode = "OLD";
                     oldCode = dr["EmailAccount"].ToString();
 

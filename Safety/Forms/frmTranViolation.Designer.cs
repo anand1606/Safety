@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpTranID = new System.Windows.Forms.GroupBox();
+            this.lblDeleted = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTrDate = new DevExpress.XtraEditors.DateEdit();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,7 +42,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpPenltyType = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPenaltyRemarks = new DevExpress.XtraEditors.MemoEdit();
@@ -54,7 +55,7 @@
             this.txtReasonCode = new DevExpress.XtraEditors.TextEdit();
             this.label8 = new System.Windows.Forms.Label();
             this.txtReasonDesc = new DevExpress.XtraEditors.MemoEdit();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.grpDefaulter = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtRemarks = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
@@ -70,23 +71,26 @@
             this.txtDefaulterCode = new DevExpress.XtraEditors.TextEdit();
             this.label10 = new System.Windows.Forms.Label();
             this.txtDefaulterType = new System.Windows.Forms.ComboBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.grpUpdate = new System.Windows.Forms.GroupBox();
             this.chkPenaltyCollected = new System.Windows.Forms.CheckBox();
-            this.lblDeleted = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtHodEmail = new DevExpress.XtraEditors.TextEdit();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtActionTaken = new DevExpress.XtraEditors.TextEdit();
+            this.grpTranID.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrID.Properties)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.grpUserRights.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grpPenltyType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPenaltyRemarks.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPenaltyDesc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtViolationDesc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtViolationID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtReasonCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtReasonDesc.Properties)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.grpDefaulter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemarks.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPenaltyAmt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLocation.Properties)).BeginInit();
@@ -94,26 +98,38 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSupervisorCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDefaulterName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDefaulterCode.Properties)).BeginInit();
-            this.groupBox4.SuspendLayout();
+            this.grpUpdate.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHodEmail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtActionTaken.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // grpTranID
             // 
-            this.groupBox1.Controls.Add(this.lblDeleted);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtTrDate);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtTrID);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1029, 65);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
+            this.grpTranID.Controls.Add(this.lblDeleted);
+            this.grpTranID.Controls.Add(this.label2);
+            this.grpTranID.Controls.Add(this.txtTrDate);
+            this.grpTranID.Controls.Add(this.label1);
+            this.grpTranID.Controls.Add(this.txtTrID);
+            this.grpTranID.Location = new System.Drawing.Point(3, 3);
+            this.grpTranID.Name = "grpTranID";
+            this.grpTranID.Size = new System.Drawing.Size(1029, 44);
+            this.grpTranID.TabIndex = 0;
+            this.grpTranID.TabStop = false;
+            // 
+            // lblDeleted
+            // 
+            this.lblDeleted.AutoSize = true;
+            this.lblDeleted.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeleted.ForeColor = System.Drawing.Color.Red;
+            this.lblDeleted.Location = new System.Drawing.Point(655, 25);
+            this.lblDeleted.Name = "lblDeleted";
+            this.lblDeleted.Size = new System.Drawing.Size(0, 23);
+            this.lblDeleted.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(204, 31);
+            this.label2.Location = new System.Drawing.Point(204, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 14);
             this.label2.TabIndex = 3;
@@ -122,7 +138,7 @@
             // txtTrDate
             // 
             this.txtTrDate.EditValue = null;
-            this.txtTrDate.Location = new System.Drawing.Point(248, 28);
+            this.txtTrDate.Location = new System.Drawing.Point(248, 15);
             this.txtTrDate.Name = "txtTrDate";
             this.txtTrDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -136,7 +152,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 31);
+            this.label1.Location = new System.Drawing.Point(6, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 14);
             this.label1.TabIndex = 1;
@@ -144,7 +160,7 @@
             // 
             // txtTrID
             // 
-            this.txtTrID.Location = new System.Drawing.Point(97, 29);
+            this.txtTrID.Location = new System.Drawing.Point(97, 16);
             this.txtTrID.Name = "txtTrID";
             this.txtTrID.Properties.Mask.EditMask = "d";
             this.txtTrID.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -158,16 +174,16 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.grpUserRights, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox4, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.grpPenltyType, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.grpTranID, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.grpDefaulter, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.grpUpdate, 0, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.70175F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 69.29825F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 119F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.53704F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.46296F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 147F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1035, 453);
@@ -253,26 +269,26 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // groupBox2
+            // grpPenltyType
             // 
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtPenaltyRemarks);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.txtPenaltyDesc);
-            this.groupBox2.Controls.Add(this.txtViolationDesc);
-            this.groupBox2.Controls.Add(this.txtViolationID);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.txtReasonCode);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.txtReasonDesc);
-            this.groupBox2.Location = new System.Drawing.Point(3, 74);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1029, 147);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Penalty Type";
+            this.grpPenltyType.Controls.Add(this.label9);
+            this.grpPenltyType.Controls.Add(this.label4);
+            this.grpPenltyType.Controls.Add(this.txtPenaltyRemarks);
+            this.grpPenltyType.Controls.Add(this.label3);
+            this.grpPenltyType.Controls.Add(this.txtPenaltyDesc);
+            this.grpPenltyType.Controls.Add(this.txtViolationDesc);
+            this.grpPenltyType.Controls.Add(this.txtViolationID);
+            this.grpPenltyType.Controls.Add(this.label5);
+            this.grpPenltyType.Controls.Add(this.label7);
+            this.grpPenltyType.Controls.Add(this.txtReasonCode);
+            this.grpPenltyType.Controls.Add(this.label8);
+            this.grpPenltyType.Controls.Add(this.txtReasonDesc);
+            this.grpPenltyType.Location = new System.Drawing.Point(3, 53);
+            this.grpPenltyType.Name = "grpPenltyType";
+            this.grpPenltyType.Size = new System.Drawing.Size(1029, 147);
+            this.grpPenltyType.TabIndex = 1;
+            this.grpPenltyType.TabStop = false;
+            this.grpPenltyType.Text = "Penalty Type";
             // 
             // label9
             // 
@@ -392,28 +408,30 @@
             this.txtReasonDesc.Size = new System.Drawing.Size(340, 87);
             this.txtReasonDesc.TabIndex = 1;
             // 
-            // groupBox3
+            // grpDefaulter
             // 
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.txtRemarks);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.txtPenaltyAmt);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.txtLocation);
-            this.groupBox3.Controls.Add(this.txtSuperVisorName);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.txtSupervisorCode);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.txtDefaulterName);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.txtDefaulterCode);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.txtDefaulterType);
-            this.groupBox3.Location = new System.Drawing.Point(3, 234);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1029, 113);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
+            this.grpDefaulter.Controls.Add(this.label16);
+            this.grpDefaulter.Controls.Add(this.txtHodEmail);
+            this.grpDefaulter.Controls.Add(this.label15);
+            this.grpDefaulter.Controls.Add(this.txtRemarks);
+            this.grpDefaulter.Controls.Add(this.label6);
+            this.grpDefaulter.Controls.Add(this.txtPenaltyAmt);
+            this.grpDefaulter.Controls.Add(this.label12);
+            this.grpDefaulter.Controls.Add(this.txtLocation);
+            this.grpDefaulter.Controls.Add(this.txtSuperVisorName);
+            this.grpDefaulter.Controls.Add(this.label14);
+            this.grpDefaulter.Controls.Add(this.txtSupervisorCode);
+            this.grpDefaulter.Controls.Add(this.label13);
+            this.grpDefaulter.Controls.Add(this.txtDefaulterName);
+            this.grpDefaulter.Controls.Add(this.label11);
+            this.grpDefaulter.Controls.Add(this.txtDefaulterCode);
+            this.grpDefaulter.Controls.Add(this.label10);
+            this.grpDefaulter.Controls.Add(this.txtDefaulterType);
+            this.grpDefaulter.Location = new System.Drawing.Point(3, 206);
+            this.grpDefaulter.Name = "grpDefaulter";
+            this.grpDefaulter.Size = new System.Drawing.Size(1029, 141);
+            this.grpDefaulter.TabIndex = 2;
+            this.grpDefaulter.TabStop = false;
             // 
             // label15
             // 
@@ -430,7 +448,7 @@
             this.txtRemarks.Name = "txtRemarks";
             this.txtRemarks.Properties.Mask.EditMask = "[-a-zA-Z0-9 .:@#$!*()+:<,>;/?]+";
             this.txtRemarks.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtRemarks.Properties.MaxLength = 35;
+            this.txtRemarks.Properties.MaxLength = 100;
             this.txtRemarks.Size = new System.Drawing.Size(340, 20);
             this.txtRemarks.TabIndex = 5;
             // 
@@ -468,7 +486,7 @@
             this.txtLocation.Name = "txtLocation";
             this.txtLocation.Properties.Mask.EditMask = "[-a-zA-Z0-9 .:@#$!*()+:<,>;/?]+";
             this.txtLocation.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtLocation.Properties.MaxLength = 35;
+            this.txtLocation.Properties.MaxLength = 100;
             this.txtLocation.Size = new System.Drawing.Size(340, 20);
             this.txtLocation.TabIndex = 1;
             // 
@@ -482,6 +500,7 @@
             this.txtSuperVisorName.Properties.ReadOnly = true;
             this.txtSuperVisorName.Size = new System.Drawing.Size(234, 20);
             this.txtSuperVisorName.TabIndex = 7;
+            this.txtSuperVisorName.TabStop = false;
             // 
             // label14
             // 
@@ -523,6 +542,7 @@
             this.txtDefaulterName.Properties.ReadOnly = true;
             this.txtDefaulterName.Size = new System.Drawing.Size(234, 20);
             this.txtDefaulterName.TabIndex = 6;
+            this.txtDefaulterName.TabStop = false;
             // 
             // label11
             // 
@@ -565,36 +585,67 @@
             this.txtDefaulterType.Name = "txtDefaulterType";
             this.txtDefaulterType.Size = new System.Drawing.Size(146, 22);
             this.txtDefaulterType.TabIndex = 0;
+            this.txtDefaulterType.Validated += new System.EventHandler(this.txtDefaulterType_Validated);
             // 
-            // groupBox4
+            // grpUpdate
             // 
-            this.groupBox4.Controls.Add(this.chkPenaltyCollected);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(3, 353);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1029, 38);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
+            this.grpUpdate.Controls.Add(this.label17);
+            this.grpUpdate.Controls.Add(this.txtActionTaken);
+            this.grpUpdate.Controls.Add(this.chkPenaltyCollected);
+            this.grpUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpUpdate.Location = new System.Drawing.Point(3, 353);
+            this.grpUpdate.Name = "grpUpdate";
+            this.grpUpdate.Size = new System.Drawing.Size(1029, 38);
+            this.grpUpdate.TabIndex = 4;
+            this.grpUpdate.TabStop = false;
             // 
             // chkPenaltyCollected
             // 
             this.chkPenaltyCollected.AutoSize = true;
-            this.chkPenaltyCollected.Location = new System.Drawing.Point(99, 15);
+            this.chkPenaltyCollected.Location = new System.Drawing.Point(683, 13);
             this.chkPenaltyCollected.Name = "chkPenaltyCollected";
             this.chkPenaltyCollected.Size = new System.Drawing.Size(191, 18);
-            this.chkPenaltyCollected.TabIndex = 0;
+            this.chkPenaltyCollected.TabIndex = 1;
             this.chkPenaltyCollected.Text = "Is Penalty Amount Collected ?";
             this.chkPenaltyCollected.UseVisualStyleBackColor = true;
             // 
-            // lblDeleted
+            // label16
             // 
-            this.lblDeleted.AutoSize = true;
-            this.lblDeleted.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeleted.ForeColor = System.Drawing.Color.Red;
-            this.lblDeleted.Location = new System.Drawing.Point(655, 25);
-            this.lblDeleted.Name = "lblDeleted";
-            this.lblDeleted.Size = new System.Drawing.Size(0, 23);
-            this.lblDeleted.TabIndex = 4;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(466, 113);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(84, 14);
+            this.label16.TabIndex = 40;
+            this.label16.Text = "Hod Email ID :";
+            // 
+            // txtHodEmail
+            // 
+            this.txtHodEmail.Location = new System.Drawing.Point(579, 108);
+            this.txtHodEmail.Name = "txtHodEmail";
+            this.txtHodEmail.Properties.Mask.EditMask = "[-a-zA-Z0-9 .:@#$!*()+:<,>;/?]+";
+            this.txtHodEmail.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtHodEmail.Properties.MaxLength = 100;
+            this.txtHodEmail.Size = new System.Drawing.Size(340, 20);
+            this.txtHodEmail.TabIndex = 6;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 15);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(88, 14);
+            this.label17.TabIndex = 42;
+            this.label17.Text = "Action Taken :";
+            // 
+            // txtActionTaken
+            // 
+            this.txtActionTaken.Location = new System.Drawing.Point(97, 12);
+            this.txtActionTaken.Name = "txtActionTaken";
+            this.txtActionTaken.Properties.Mask.EditMask = "[-a-zA-Z0-9 .:@#$!*()+:<,>;/?]+";
+            this.txtActionTaken.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtActionTaken.Properties.MaxLength = 200;
+            this.txtActionTaken.Size = new System.Drawing.Size(578, 20);
+            this.txtActionTaken.TabIndex = 0;
             // 
             // frmTranViolation
             // 
@@ -606,23 +657,23 @@
             this.Name = "frmTranViolation";
             this.Text = "Safety Violation";
             this.Load += new System.EventHandler(this.frmTranViolation_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpTranID.ResumeLayout(false);
+            this.grpTranID.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTrID.Properties)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.grpUserRights.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grpPenltyType.ResumeLayout(false);
+            this.grpPenltyType.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPenaltyRemarks.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPenaltyDesc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtViolationDesc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtViolationID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtReasonCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtReasonDesc.Properties)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.grpDefaulter.ResumeLayout(false);
+            this.grpDefaulter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemarks.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPenaltyAmt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLocation.Properties)).EndInit();
@@ -630,21 +681,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSupervisorCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDefaulterName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDefaulterCode.Properties)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.grpUpdate.ResumeLayout(false);
+            this.grpUpdate.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHodEmail.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtActionTaken.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpTranID;
         private DevExpress.XtraEditors.TextEdit txtTrID;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.DateEdit txtTrDate;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpPenltyType;
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.MemoEdit txtPenaltyRemarks;
         private System.Windows.Forms.Label label3;
@@ -657,7 +710,7 @@
         private System.Windows.Forms.Label label8;
         private DevExpress.XtraEditors.MemoEdit txtReasonDesc;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox grpDefaulter;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox txtDefaulterType;
         private System.Windows.Forms.Label label15;
@@ -680,8 +733,12 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEmail;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox grpUpdate;
         private System.Windows.Forms.CheckBox chkPenaltyCollected;
         private System.Windows.Forms.Label lblDeleted;
+        private System.Windows.Forms.Label label16;
+        private DevExpress.XtraEditors.TextEdit txtHodEmail;
+        private System.Windows.Forms.Label label17;
+        private DevExpress.XtraEditors.TextEdit txtActionTaken;
     }
 }
