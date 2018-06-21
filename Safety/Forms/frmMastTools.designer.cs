@@ -76,6 +76,8 @@
             this.ToolsID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.StoSprayGunNo = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtRemarks2 = new DevExpress.XtraEditors.TextEdit();
+            this.label19 = new System.Windows.Forms.Label();
             this.txtToolsID2 = new DevExpress.XtraEditors.TextEdit();
             this.btnDeleteInsp = new System.Windows.Forms.Button();
             this.btnAddInsp = new System.Windows.Forms.Button();
@@ -94,8 +96,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtSrNo = new DevExpress.XtraEditors.TextEdit();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtRemarks2 = new DevExpress.XtraEditors.TextEdit();
-            this.label19 = new System.Windows.Forms.Label();
+            this.chkRejected = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemarks.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRespEmail.Properties)).BeginInit();
@@ -120,6 +121,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gv_Details)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StoSprayGunNo)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemarks2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtToolsID2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtActInspDt.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtActInspDt.Properties)).BeginInit();
@@ -132,11 +134,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtInspTypeID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSrNo.Properties)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRemarks2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chkRejected);
             this.groupBox1.Controls.Add(this.txtRemarks);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.txtRespEmail);
@@ -460,7 +462,7 @@
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Cornsilk;
-            this.btnDelete.Location = new System.Drawing.Point(408, 20);
+            this.btnDelete.Location = new System.Drawing.Point(650, 20);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 32);
             this.btnDelete.TabIndex = 2;
@@ -704,6 +706,25 @@
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             // 
+            // txtRemarks2
+            // 
+            this.txtRemarks2.Location = new System.Drawing.Point(104, 69);
+            this.txtRemarks2.Name = "txtRemarks2";
+            this.txtRemarks2.Properties.Mask.EditMask = "[A-Za-z 0-9.]+";
+            this.txtRemarks2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtRemarks2.Properties.MaxLength = 50;
+            this.txtRemarks2.Size = new System.Drawing.Size(285, 20);
+            this.txtRemarks2.TabIndex = 28;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 70);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(57, 15);
+            this.label19.TabIndex = 29;
+            this.label19.Text = "Remarks";
+            // 
             // txtToolsID2
             // 
             this.txtToolsID2.Location = new System.Drawing.Point(622, 42);
@@ -896,24 +917,17 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(914, 455);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
-            // txtRemarks2
+            // chkRejected
             // 
-            this.txtRemarks2.Location = new System.Drawing.Point(104, 69);
-            this.txtRemarks2.Name = "txtRemarks2";
-            this.txtRemarks2.Properties.Mask.EditMask = "[A-Za-z 0-9.]+";
-            this.txtRemarks2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtRemarks2.Properties.MaxLength = 50;
-            this.txtRemarks2.Size = new System.Drawing.Size(285, 20);
-            this.txtRemarks2.TabIndex = 28;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 70);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(57, 15);
-            this.label19.TabIndex = 29;
-            this.label19.Text = "Remarks";
+            this.chkRejected.AutoSize = true;
+            this.chkRejected.Location = new System.Drawing.Point(112, 221);
+            this.chkRejected.Name = "chkRejected";
+            this.chkRejected.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.chkRejected.Size = new System.Drawing.Size(94, 19);
+            this.chkRejected.TabIndex = 44;
+            this.chkRejected.Text = "?Is Rejected";
+            this.chkRejected.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkRejected.UseVisualStyleBackColor = true;
             // 
             // frmMastTools
             // 
@@ -951,6 +965,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.StoSprayGunNo)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemarks2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtToolsID2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtActInspDt.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtActInspDt.Properties)).EndInit();
@@ -963,7 +978,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtInspTypeID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSrNo.Properties)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtRemarks2.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1038,5 +1052,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private DevExpress.XtraEditors.TextEdit txtRemarks2;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.CheckBox chkRejected;
     }
 }

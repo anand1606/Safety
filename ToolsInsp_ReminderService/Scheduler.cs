@@ -29,6 +29,8 @@ namespace ToolsInsp_ReminderService
             public DateTime DueInspDt { get; set; }
             public string Remarks { get; set; }
             public string RespEmailID { get; set; }
+            public string RespPerson { get; set; }
+
         }
         
         
@@ -64,7 +66,7 @@ namespace ToolsInsp_ReminderService
         #region GlobalVars
 
         private System.Timers.Timer timer = new System.Timers.Timer();
-        private static TimeSpan tSch = new TimeSpan(10, 00, 00);
+        private static TimeSpan tSch = new TimeSpan(15, 35, 00);
         private DateTime tSchLastRun = DateTime.Now;
         private static string constr = "Server=172.16.12.14;Database=Safety;User Id=ipu_safety;Password=ipu_safety;";
 
@@ -95,7 +97,8 @@ namespace ToolsInsp_ReminderService
 
             // Update the service state to Running.  
             serviceStatus.dwCurrentState = ServiceState.SERVICE_RUNNING;
-            SetServiceStatus(this.ServiceHandle, ref serviceStatus);  
+            SetServiceStatus(this.ServiceHandle, ref serviceStatus);
+            Library.WriteErrorLog("Service Started");
         }
 
         protected override void OnStop()
@@ -113,14 +116,15 @@ namespace ToolsInsp_ReminderService
 
             // Update the service state to Running.  
             serviceStatus.dwCurrentState = ServiceState.SERVICE_STOPPED;
-            SetServiceStatus(this.ServiceHandle, ref serviceStatus);  
+            SetServiceStatus(this.ServiceHandle, ref serviceStatus);
+            Library.WriteErrorLog("Service Stopped");
         }
 
 
         public void OnTimer(object sender, System.Timers.ElapsedEventArgs args)
         {
             // TODO: Insert monitoring activities here.  
-
+            Library.WriteErrorLog("Heart Beat");
             if (tSchLastRun.Hour == tSch.Hours && tSchLastRun.Minute == tSch.Minutes)
             {
                 //assure do not run multiple times in same minutes
@@ -138,7 +142,7 @@ namespace ToolsInsp_ReminderService
                 string err = string.Empty;
 
                 //get list of pending ->exactly 30 days
-                string sql = "SELECT * FROM V_Tools_Insp_History where InspDue = 1 and DueInspDt = DateAdd(day,30,GetDate()) Order By [RespEmailID]";
+                string sql = "SELECT * FROM V_Tools_Insp_History where RejectedFlg = 0 and InspDue = 1 and DueInspDt = DateAdd(day,30,GetDate()) Order By [RespEmailID]";
                 DataSet ds30 = Library.GetData(sql, constr, out err);
                 bool hasRows = ds30.Tables.Cast<DataTable>().Any(table => table.Rows.Count != 0);
                 if (hasRows)
@@ -155,6 +159,7 @@ namespace ToolsInsp_ReminderService
                         t.ToolsName = dr["ToolsName"].ToString();
                         t.Capacity = dr["Capacity"].ToString();
                         t.RespEmailID = dr["RespEmailID"].ToString();
+                        t.RespPerson = dr["RespPerson"].ToString();
                         t.Remarks = "Pending At 30th Day From :" + DateTime.Now.ToString("dd/MM/yyyy");
 
                         temp.Add(t);
@@ -162,7 +167,7 @@ namespace ToolsInsp_ReminderService
                 }
 
                 //get list of pending ->exactly 30 days
-                sql = "SELECT * FROM V_Tools_Insp_History where InspDue = 1 and DueInspDt = DateAdd(day,15,GetDate()) Order By [RespEmailID]";
+                sql = "SELECT * FROM V_Tools_Insp_History where RejectedFlg = 0 and  InspDue = 1 and DueInspDt = DateAdd(day,15,GetDate()) Order By [RespEmailID]";
                 DataSet ds15 = Library.GetData(sql, constr, out err);
                 hasRows = ds15.Tables.Cast<DataTable>().Any(table => table.Rows.Count != 0);
                 if (hasRows)
@@ -179,6 +184,7 @@ namespace ToolsInsp_ReminderService
                         t.ToolsName = dr["ToolsName"].ToString();
                         t.Capacity = dr["Capacity"].ToString();
                         t.RespEmailID = dr["RespEmailID"].ToString();
+                        t.RespPerson = dr["RespPerson"].ToString();
                         t.Remarks = "Pending At 15th Day From :" + DateTime.Now.ToString("dd/MM/yyyy");
 
                         temp.Add(t);
@@ -186,7 +192,7 @@ namespace ToolsInsp_ReminderService
                 }
 
                 //get list of pending ->exactly 30 days
-                sql = "SELECT * FROM V_Tools_Insp_History where InspDue = 1 and DueInspDt = DateAdd(day,3,GetDate()) Order By [RespEmailID]";
+                sql = "SELECT * FROM V_Tools_Insp_History where RejectedFlg = 0 and InspDue = 1 and DueInspDt = DateAdd(day,3,GetDate()) Order By [RespEmailID]";
                 DataSet ds3 = Library.GetData(sql, constr, out err);
                 hasRows = ds3.Tables.Cast<DataTable>().Any(table => table.Rows.Count != 0);
                 if (hasRows)
@@ -203,13 +209,14 @@ namespace ToolsInsp_ReminderService
                         t.ToolsName = dr["ToolsName"].ToString();
                         t.Capacity = dr["Capacity"].ToString();
                         t.RespEmailID = dr["RespEmailID"].ToString();
+                        t.RespPerson = dr["RespPerson"].ToString();
                         t.Remarks = "Pending At 3rd Day From :" + DateTime.Now.ToString("dd/MM/yyyy");
 
                         temp.Add(t);
                     }
                 }
 
-                 sql = "SELECT * FROM V_Tools_Insp_History where InspDue = 1 and DueInspDt <= GetDate() Order By [RespEmailID]";
+                sql = "SELECT * FROM V_Tools_Insp_History where RejectedFlg = 0 and InspDue = 1 and DueInspDt <= GetDate() Order By [RespEmailID]";
                 DataSet ds4 = Library.GetData(sql, constr, out err);
                 hasRows = ds4.Tables.Cast<DataTable>().Any(table => table.Rows.Count != 0);
                 if (hasRows)
@@ -226,6 +233,7 @@ namespace ToolsInsp_ReminderService
                         t.ToolsName = dr["ToolsName"].ToString();
                         t.Capacity = dr["Capacity"].ToString();
                         t.RespEmailID = dr["RespEmailID"].ToString();
+                        t.RespPerson = dr["RespPerson"].ToString();
                         t.Remarks = "Inspection till Pending";
 
                         temp.Add(t);
@@ -305,6 +313,7 @@ namespace ToolsInsp_ReminderService
                             "</head>" +
                             "<body>" +
                             "Sir, </br><p>" + "Please Find the List of tools which are pending for inspection. " + "</p> <br/> <br/> " +
+                            "<p>Responsible Person : " + listoftools[0].RespPerson + "</p>" +
                            "<table>" +
                            "<thead>" +
                             "<tr>" +
@@ -330,6 +339,7 @@ namespace ToolsInsp_ReminderService
                                     "<td>" + t.Plant.ToString() + "</td>" +
                                     "<td>" + t.Department.ToString() + "</td>" +
                                     "<td>" + t.Location.ToString() + "</td>" +
+                                    "<td>" + t.ToolsName.ToString() + "</td>" +
                                     "<td>" + t.Capacity.ToString() + "</td>" +
                                     "<td>" + t.LastInspDt.ToString("dd/MM/yyyy") + "</td>" +
                                     "<td>" + t.DueInspDt.ToString("dd/MM/yyyy") + "</td>" +

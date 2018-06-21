@@ -118,7 +118,8 @@ namespace Safety.Forms
             txtPlant.Text = "";
             txtLocation.Text = "";
             txtReportNo.Text = "";
-            
+            chkRejected.Checked = false;
+
             txtFormNo.Text = "";
             txtRespPerson.Text = "";
             txtRespEmail.Text = "";
@@ -255,7 +256,7 @@ namespace Safety.Forms
                             " TypeofTools = '{1}', Capacity = '{2}'," +
                             " DeptName = '{3}',PlantName = '{4}',Location = '{5}', ReportNo = '{6}'," +
                             " FormNo = '{7}' ,RespPerson = '{8}' ,RespEmailID = '{9}', Remarks = '{10}', " +
-                            " UpdDt = GetDate(), UpdID = '{11}' Where ToolsID = '{12}'";
+                            " UpdDt = GetDate(), UpdID = '{11}' , RejectedFlg = '{12}' Where ToolsID = '{13}'";
                         
                         sql = string.Format(sql, 
                              txtToolsName.Text.Trim().ToString().ToUpper(),
@@ -270,6 +271,7 @@ namespace Safety.Forms
                             txtRespEmail.Text.Trim().ToString().ToUpper(),
                             txtRemarks.Text.Trim().ToString().ToUpper(),
                             Utils.User.GUserID,
+                            (chkRejected.Checked?1:0),
                             txtToolsID.Text.Trim()
                            );
 
@@ -302,7 +304,7 @@ namespace Safety.Forms
                 return;
             }
 
-            DialogResult dr = MessageBox.Show("Are You Sure to Delete This Tools ?", "Question", MessageBoxButtons.YesNoCancel,MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("Are You Sure to Delete This Tools ?, this will delete this tool permanentrly with all history.", "Question", MessageBoxButtons.YesNoCancel,MessageBoxIcon.Question);
 
             if (dr == DialogResult.Yes)
             {
@@ -447,7 +449,7 @@ namespace Safety.Forms
                     txtReportNo.Text = dr["ReportNo"].ToString();
                     txtFormNo.Text = dr["FormNo"].ToString();
 
-
+                    chkRejected.Checked = Convert.ToBoolean(dr["RejectedFlg"]);
                     
                     txtRespPerson.Text = dr["RespPerson"].ToString();
                     txtRespEmail.Text = dr["RespEmailID"].ToString();
@@ -614,7 +616,7 @@ namespace Safety.Forms
                     txtInspTypeID.Text = dr["InspTypeID"].ToString();
                     txtInspTypeDesc.Text = dr["InspTypeDesc"].ToString() ;
                     txtCertRecFrom.Text = dr["CertRecFrom"].ToString();
-                    txtRemarks2.Text = dr["Remarks"].ToString();
+                    txtRemarks2.Text = dr["DetailRemarks"].ToString();
 
                     chkIsDue.Checked = Convert.ToBoolean(dr["InspDue"]);
 
@@ -681,6 +683,7 @@ namespace Safety.Forms
         {
             string err = string.Empty;
             
+            
             if (dmode == "NEW")
             {
                 err = DataValidate2("NEW");
@@ -688,6 +691,17 @@ namespace Safety.Forms
             else
             {
                 err = DataValidate2("OLD");
+            }
+
+            if(!string.IsNullOrEmpty(txtToolsID.Text.Trim().ToString()))
+            {
+                string ch = Utils.Helper.GetDescription("Select RejectedFlg where ToolsID = '" + txtToolsID.Text.Trim().ToString() + "'", Utils.Helper.constr);
+
+                if (Convert.ToBoolean(ch))
+                {
+                    MessageBox.Show("Operation does not allowed on rejected tools", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
 
             if (!string.IsNullOrEmpty(err))
@@ -821,7 +835,7 @@ namespace Safety.Forms
                                          newid,
                                          txtInspTypeID.Text.Trim().ToString().ToUpper(),
                                          txtActInspDt.DateTime.ToString("yyyy-MM-dd"),
-                                         txtActInspDt.DateTime.AddDays(NextDue),
+                                         txtActInspDt.DateTime.AddDays(NextDue).ToString("yyyy-MM-dd"),
                                          Utils.User.GUserID,
                                          1
                                          );
@@ -852,6 +866,16 @@ namespace Safety.Forms
 
         private void btnDeleteInsp_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(txtToolsID.Text.Trim().ToString()))
+            {
+                string ch = Utils.Helper.GetDescription("Select RejectedFlg where ToolsID = '" + txtToolsID.Text.Trim().ToString() + "'", Utils.Helper.constr);
+
+                if (Convert.ToBoolean(ch))
+                {
+                    MessageBox.Show("Operation does not allowed on rejected tools", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
 
             string err = string.Empty;
             if (string.IsNullOrEmpty(txtToolsID.Text.Trim()))
@@ -928,6 +952,7 @@ namespace Safety.Forms
         {
             string err = string.Empty;
 
+            
             if (tMode == "NEW")
             {
                 string newid = Utils.Helper.GetDescription("Select isnull(Max(SrNo),0) + 1 From MastToolsDT Where ToolsID='" + txtToolsID2.Text.Trim() + "'", Utils.Helper.constr);
