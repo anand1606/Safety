@@ -16,9 +16,6 @@ namespace Safety.Classes
     class Globals
     {
 
-        public static string MasterMachineIP = string.Empty;
-        
-       
         //used for checkpath
         public static string G_UpdateChkPath;
 
@@ -27,56 +24,34 @@ namespace Safety.Classes
         public static string G_NetworkUser;
         public static string G_NetworkPass;
 
-       
+        public static Utils.EmailConfig G_EmailConfig = new Utils.EmailConfig();
 
-        public static bool GetGlobalVars()
+        public static bool SetEmailConfig()
         {
             bool tset = false;
 
-            DataSet ds = new DataSet();
-
-            string sql = "Select Top 1 * from MastBCFlg ";
-            ds = Utils.Helper.GetData(sql, Utils.Helper.constr);
-            bool hasRows = ds.Tables.Cast<DataTable>().Any(table => table.Rows.Count != 0);
-            if (hasRows)
+            DataSet ds = Utils.Helper.GetData("Select top 1 * from EmailConfig",Utils.Helper.constr);
+            bool hasrows = ds.Tables.Cast<DataTable>().Any(table => table.Rows.Count != 0);
+            if (hasrows)
             {
-                foreach (DataRow dr in ds.Tables[0].Rows)
-                {                
-                    
-                }
-            }
-
-            sql = "Select top 1 * From MastNetwork ";
-            ds = Utils.Helper.GetData(sql, Utils.Helper.constr);
-            hasRows = ds.Tables.Cast<DataTable>().Any(table => table.Rows.Count != 0);
-
-            if (hasRows)
-            {
-                tset = true;
-                foreach (DataRow dr in ds.Tables[0].Rows)
+                foreach(DataRow dr in ds.Tables[0].Rows)
                 {
-                    
+                    G_EmailConfig.AccountUser = dr["EmailAccount"].ToString();
+                    G_EmailConfig.AccountPass = dr["AccountPassword"].ToString();
+                    G_EmailConfig.Host = dr["smtpHost"].ToString();
+                    G_EmailConfig.Port = Convert.ToInt32(dr["smtpPort"].ToString());
+                    G_EmailConfig.SenderEMailID = dr["EmailID"].ToString();
 
-                    G_UpdateChkPath = dr["UpdateChkPath"].ToString();
-                    G_NetworkDomain = dr["NetworkDomain"].ToString();
-                    G_NetworkUser = dr["NetworkUser"].ToString();
-                    G_NetworkPass = dr["NetworkPass"].ToString();
+                    G_EmailConfig.Finance_GrpEmailID = dr["SentFinanceTo"].ToString();
+                    G_EmailConfig.HRER_GrpEmailID = dr["SentHRTo"].ToString();
+                    G_EmailConfig.CCToGrpEmailID = dr["SentCCto"].ToString();
                     
-                    Utils.DomainUserConfig.DomainName = dr["NetworkDomain"].ToString();
-                    Utils.DomainUserConfig.DomainUser = dr["NetworkUser"].ToString();
-                    Utils.DomainUserConfig.DomainPassword = dr["NetworkPass"].ToString();
-
                 }
-                
+
+                tset = true;
             }
-            else
-            {
-                tset = false ;
-            }
-                        
             return tset;
-
-
+            
         }
        
 

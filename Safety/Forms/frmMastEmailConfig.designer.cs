@@ -98,7 +98,7 @@
             // 
             // txtSMTPPort
             // 
-            this.txtSMTPPort.Location = new System.Drawing.Point(158, 93);
+            this.txtSMTPPort.Location = new System.Drawing.Point(169, 93);
             this.txtSMTPPort.Name = "txtSMTPPort";
             this.txtSMTPPort.Properties.Mask.EditMask = "[0-9]+";
             this.txtSMTPPort.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -117,11 +117,11 @@
             // 
             // txtHRSentTo
             // 
-            this.txtHRSentTo.Location = new System.Drawing.Point(158, 170);
+            this.txtHRSentTo.Location = new System.Drawing.Point(169, 170);
             this.txtHRSentTo.Name = "txtHRSentTo";
             this.txtHRSentTo.Properties.Mask.ShowPlaceHolders = false;
             this.txtHRSentTo.Properties.MaxLength = 200;
-            this.txtHRSentTo.Size = new System.Drawing.Size(540, 20);
+            this.txtHRSentTo.Size = new System.Drawing.Size(529, 20);
             this.txtHRSentTo.TabIndex = 6;
             // 
             // label6
@@ -135,7 +135,7 @@
             // 
             // txtSMTPHost
             // 
-            this.txtSMTPHost.Location = new System.Drawing.Point(158, 68);
+            this.txtSMTPHost.Location = new System.Drawing.Point(169, 68);
             this.txtSMTPHost.Name = "txtSMTPHost";
             this.txtSMTPHost.Properties.MaxLength = 200;
             this.txtSMTPHost.Size = new System.Drawing.Size(286, 20);
@@ -161,16 +161,16 @@
             // 
             // txtFinSentTo
             // 
-            this.txtFinSentTo.Location = new System.Drawing.Point(158, 144);
+            this.txtFinSentTo.Location = new System.Drawing.Point(169, 144);
             this.txtFinSentTo.Name = "txtFinSentTo";
             this.txtFinSentTo.Properties.Mask.ShowPlaceHolders = false;
             this.txtFinSentTo.Properties.MaxLength = 200;
-            this.txtFinSentTo.Size = new System.Drawing.Size(540, 20);
+            this.txtFinSentTo.Size = new System.Drawing.Size(529, 20);
             this.txtFinSentTo.TabIndex = 5;
             // 
             // txtEmailID
             // 
-            this.txtEmailID.Location = new System.Drawing.Point(158, 118);
+            this.txtEmailID.Location = new System.Drawing.Point(169, 118);
             this.txtEmailID.Name = "txtEmailID";
             this.txtEmailID.Properties.MaxLength = 200;
             this.txtEmailID.Size = new System.Drawing.Size(286, 20);
@@ -187,7 +187,7 @@
             // 
             // txtAccountPassword
             // 
-            this.txtAccountPassword.Location = new System.Drawing.Point(158, 42);
+            this.txtAccountPassword.Location = new System.Drawing.Point(169, 42);
             this.txtAccountPassword.Name = "txtAccountPassword";
             this.txtAccountPassword.Properties.Mask.ShowPlaceHolders = false;
             this.txtAccountPassword.Properties.MaxLength = 200;
@@ -196,7 +196,7 @@
             // 
             // txtEmailAccount
             // 
-            this.txtEmailAccount.Location = new System.Drawing.Point(158, 16);
+            this.txtEmailAccount.Location = new System.Drawing.Point(169, 16);
             this.txtEmailAccount.Name = "txtEmailAccount";
             this.txtEmailAccount.Properties.Mask.ShowPlaceHolders = false;
             this.txtEmailAccount.Properties.MaxLength = 200;
@@ -293,11 +293,11 @@
             // 
             // txtCCTo
             // 
-            this.txtCCTo.Location = new System.Drawing.Point(158, 196);
+            this.txtCCTo.Location = new System.Drawing.Point(169, 196);
             this.txtCCTo.Name = "txtCCTo";
             this.txtCCTo.Properties.Mask.ShowPlaceHolders = false;
             this.txtCCTo.Properties.MaxLength = 200;
-            this.txtCCTo.Size = new System.Drawing.Size(540, 20);
+            this.txtCCTo.Size = new System.Drawing.Size(529, 20);
             this.txtCCTo.TabIndex = 7;
             // 
             // frmMastEmailConfig

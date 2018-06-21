@@ -621,23 +621,27 @@ namespace Utils
    
     //bool hasrows = ds.Tables.Cast<DataTable>().Any(table => table.Rows.Count != 0);
 
-    public static class EmailConfig
+    public class EmailConfig
     {
         /// Static value protected by access routine.
-        static string _HODGrpEMailID;
-        static string _AccountEMailID;
-        static string _AccountUser;
-        static string _AccountPass;
-        static string _Host;
+        
+        private string _SenderEMailID;
+        private string _AccountUser;
+        private string _AccountPass;
+        private string _Host;
+        private int _Port;
 
-        public static string AccountPass
+        private string _HREREmailID;
+        private string _FinanceEmailID;
+        private string _CCToGrpEMailID;
+        
+        public string AccountPass
         {
             get { return _AccountPass; }
             set { _AccountPass = value; }
         }
-
-       
-        public static string AccountUser
+               
+        public string AccountUser
         {
             get
             {
@@ -648,33 +652,56 @@ namespace Utils
                 _AccountUser = value;
             }
         }
-
-
-        public static string HodGrpEmailID
+        
+        public string CCToGrpEmailID
         {
             get
             {
-                return _HODGrpEMailID;
+                return _CCToGrpEMailID;
             }
             set
             {
-                _HODGrpEMailID = value;
+                _CCToGrpEMailID = value;
             }
         }
 
-        public static string AccountEMailID
+        public string Finance_GrpEmailID
         {
             get
             {
-                return _AccountEMailID;
+                return _FinanceEmailID;
             }
             set
             {
-                _AccountEMailID = value;
+                _FinanceEmailID = value;
             }
         }
 
-        public static string Host
+        public string HRER_GrpEmailID
+        {
+            get
+            {
+                return _HREREmailID;
+            }
+            set
+            {
+                _HREREmailID = value;
+            }
+        }
+
+        public string SenderEMailID
+        {
+            get
+            {
+                return _SenderEMailID;
+            }
+            set
+            {
+                _SenderEMailID = value;
+            }
+        }
+
+        public string Host
         {
             get
             {
@@ -684,6 +711,32 @@ namespace Utils
             {
                 _Host = value;
             }
+        }
+
+        public int Port
+        {
+            get
+            {
+                return _Port;
+            }
+            set
+            {
+                _Port = value;
+            }
+        }
+
+        public EmailConfig()
+        {
+            
+            _SenderEMailID = string.Empty;
+            _AccountPass = string.Empty;
+            _AccountUser = string.Empty;
+            _Host = string.Empty;
+            _Port = 0;
+
+            _FinanceEmailID = string.Empty;
+            _HREREmailID = string.Empty;
+            _CCToGrpEMailID = string.Empty;
         }
 
     }

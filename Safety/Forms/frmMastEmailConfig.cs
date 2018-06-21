@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using Safety.Classes;
 
 namespace Safety.Forms
 {
@@ -26,7 +27,22 @@ namespace Safety.Forms
         {
             ResetCtrl();
             GRights = Safety.Classes.Globals.GetFormRights(this.Name);
-            SetRights();            
+            SetRights();
+
+            bool temail = Globals.SetEmailConfig();
+            if (temail)
+            {
+                txtEmailID.Text = Globals.G_EmailConfig.SenderEMailID;
+                txtEmailAccount.Text = Globals.G_EmailConfig.AccountUser;
+                txtAccountPassword.Text = Globals.G_EmailConfig.AccountPass;
+                txtSMTPHost.Text = Globals.G_EmailConfig.Host;
+                txtSMTPPort.Text = Globals.G_EmailConfig.Port.ToString();
+                
+                txtHRSentTo.Text = Globals.G_EmailConfig.HRER_GrpEmailID;
+                txtFinSentTo.Text = Globals.G_EmailConfig.Finance_GrpEmailID;
+                txtCCTo.Text = Globals.G_EmailConfig.CCToGrpEmailID;
+                
+            }
         }
 
         private string DataValidate()
@@ -166,7 +182,7 @@ namespace Safety.Forms
                     {
                         cn.Open();
                         cmd.Connection = cn;
-                        string sql = "Update EMailConfig Set AccountPassword = '{0}', EmailID='{1}',smtpHost='{2}',smtpport='{3}', SentFinanceTo = '{4}', SentHRTo = '{5}' , UpdDt = GetDate(), UpdID = '{6}' , CCTo = '{7}' " +
+                        string sql = "Update EMailConfig Set AccountPassword = '{0}', EmailID='{1}',smtpHost='{2}',smtpport='{3}', SentFinanceTo = '{4}', SentHRTo = '{5}' , UpdDt = GetDate(), UpdID = '{6}' , SentCCTo = '{7}' " +
                             " Where EmailAccount = '{7}' ";
 
                         sql = string.Format(sql, txtAccountPassword.Text.ToString(),                             
@@ -293,7 +309,7 @@ namespace Safety.Forms
                     txtFinSentTo.Text = dr["SentFinanceTo"].ToString();
                     txtHRSentTo.Text = dr["SentHRTo"].ToString();
                     txtSMTPPort.Text = dr["smtpport"].ToString();
-                    txtCCTo.Text = dr["CCTo"].ToString();
+                    txtCCTo.Text = dr["SentCCTo"].ToString();
                     mode = "OLD";
                     oldCode = dr["EmailAccount"].ToString();
 

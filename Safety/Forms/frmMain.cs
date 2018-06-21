@@ -65,8 +65,8 @@ namespace Safety
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-           
 
+            bool temail = Globals.SetEmailConfig();
 
             ToolStripItemCollection tmnu = menuStrip1.Items;
             SetToolStripItems(tmnu);
