@@ -279,18 +279,34 @@ namespace ToolsInsp_ReminderService
                 //here we get list of list of tools
                 if(mails.Count > 0)
                 {
+                    err = string.Empty;
+                    DataSet ds = Library.GetData("Select top 1  * from  EMailConfig", constr,out err);
+                    if (!string.IsNullOrEmpty(err))
+                        return;
+
+                    hasRows = ds.Tables.Cast<DataTable>().Any(table => table.Rows.Count != 0);
+                    DataRow dr;
+                    if (!hasRows)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        dr = ds.Tables[0].Rows[0];
+                    }
+                    
                     foreach (List<ToolsInfo> listoftools in mails)
                     {
                        
                         //prepare new mail
                         //testing use anand's mailid
-                        string smtphost = "smtp.office365.com";
-                        string emailaccount = "anand.acharya@jindalsaw.com";
-                        string accountuser = "acharyaa@jindalsaw.com";
-                        string accountpss = "Jind@l123";
+                        string smtphost = dr["smtpHost"].ToString();
+                        string emailaccount = dr["EmailID"].ToString(); //"anand.acharya@jindalsaw.com";
+                        string accountuser = dr["EmailAccount"].ToString(); //"acharyaa@jindalsaw.com";
+                        string accountpss = dr["AccountPassword"].ToString(); //"Jind@l123";
                         string subject = "Tools & Tackles Inspection Reminder";
-                        //string emailto = listoftools[0].RespEmailID;
-                        string emailto = "anand.acharya@jindalsaw.com";
+                        string emailto = listoftools[0].RespEmailID;
+                        //string emailto = "anand.acharya@jindalsaw.com";
                         string thead = "<html> " +
                             "<head>" +
                             "<style>" +
