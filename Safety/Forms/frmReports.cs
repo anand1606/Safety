@@ -38,6 +38,10 @@ namespace Safety
            
            
             grid1.DataSource = null;
+            lbl_fromdt.Visible = false;
+            lbl_todate.Visible = false;
+            txtFromDt.Visible = false;
+            txtToDt.Visible = false;
 
         }
 
@@ -141,25 +145,30 @@ namespace Safety
                     this.Cursor = Cursors.WaitCursor;
 
                     if (sqltyp == "SQL")
-                    {
-                       
+                    {                       
                         GridDataSet = Utils.Helper.GetData(sql, Utils.Helper.constr);
                     }
                     else if (sqltyp == "SP")
                     {
+                        if (txtFromDt.EditValue == null)
+                        {
+                            this.Cursor = Cursors.Default;
+                            MessageBox.Show("Please Select from date..", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
 
-                        //using (SqlConnection conn = new SqlConnection(Utils.Helper.constr))
-                        //{
-                        //    SqlCommand sqlComm = new SqlCommand(sql, conn);
-                        //    sqlComm.Parameters.AddWithValue("@payperiod", txtPayPeriod.Text.Trim());
-                        //    sqlComm.Parameters.AddWithValue("@ContCode", txtContCode.Text.Trim());
-                        //    sqlComm.CommandType = CommandType.StoredProcedure;
+                        if (txtFromDt.EditValue == null)
+                        {
+                            this.Cursor = Cursors.Default;
+                            MessageBox.Show("Please Select to date..", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
 
-                        //    SqlDataAdapter da = new SqlDataAdapter();
-                        //    da.SelectCommand = sqlComm;
-                        //    da.Fill(GridDataSet);
-                        //    da.Dispose();
-                        //}
+
+
+                        sql = sql.Replace("@fromdt", txtFromDt.DateTime.ToString("yyyy-MM-dd"));
+                        sql = sql.Replace("@todt", txtToDt.DateTime.ToString("yyyy-MM-dd"));
+                        GridDataSet = Utils.Helper.GetData(sql, Utils.Helper.constr);
                     }
 
                     this.Cursor = Cursors.Default;
@@ -235,6 +244,24 @@ namespace Safety
                         MessageBox.Show(msg, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+            }
+        }
+
+        private void cmbReports_Validated(object sender, EventArgs e)
+        {
+            if (cmbReports.Text.Trim().ToString().Contains("Safety"))
+            {
+                lbl_fromdt.Visible = true;
+                lbl_todate.Visible = true;
+                txtFromDt.Visible = true;
+                txtToDt.Visible = true;
+            }
+            else
+            {
+                lbl_fromdt.Visible = false;
+                lbl_todate.Visible = false;
+                txtFromDt.Visible = false;
+                txtToDt.Visible = false;
             }
         }
 

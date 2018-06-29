@@ -36,11 +36,19 @@
             this.btnExportGrid = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbReports = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtFromDt = new DevExpress.XtraEditors.DateEdit();
+            this.txtToDt = new DevExpress.XtraEditors.DateEdit();
+            this.lbl_fromdt = new System.Windows.Forms.Label();
+            this.lbl_todate = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbReports.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFromDt.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFromDt.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtToDt.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtToDt.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -102,6 +110,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbl_todate);
+            this.groupBox1.Controls.Add(this.lbl_fromdt);
+            this.groupBox1.Controls.Add(this.txtToDt);
+            this.groupBox1.Controls.Add(this.txtFromDt);
             this.groupBox1.Controls.Add(this.btnRefresh);
             this.groupBox1.Controls.Add(this.btnExportGrid);
             this.groupBox1.Controls.Add(this.label1);
@@ -151,8 +163,55 @@
             this.cmbReports.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbReports.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbReports.Size = new System.Drawing.Size(410, 20);
+            this.cmbReports.Size = new System.Drawing.Size(355, 20);
             this.cmbReports.TabIndex = 0;
+            this.cmbReports.Validated += new System.EventHandler(this.cmbReports_Validated);
+            // 
+            // txtFromDt
+            // 
+            this.txtFromDt.EditValue = null;
+            this.txtFromDt.Location = new System.Drawing.Point(386, 31);
+            this.txtFromDt.Name = "txtFromDt";
+            this.txtFromDt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtFromDt.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtFromDt.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+            this.txtFromDt.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+            this.txtFromDt.Size = new System.Drawing.Size(100, 20);
+            this.txtFromDt.TabIndex = 5;
+            // 
+            // txtToDt
+            // 
+            this.txtToDt.EditValue = null;
+            this.txtToDt.Location = new System.Drawing.Point(504, 30);
+            this.txtToDt.Name = "txtToDt";
+            this.txtToDt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtToDt.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtToDt.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+            this.txtToDt.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+            this.txtToDt.Size = new System.Drawing.Size(100, 20);
+            this.txtToDt.TabIndex = 6;
+            // 
+            // lbl_fromdt
+            // 
+            this.lbl_fromdt.AutoSize = true;
+            this.lbl_fromdt.Location = new System.Drawing.Point(383, 17);
+            this.lbl_fromdt.Name = "lbl_fromdt";
+            this.lbl_fromdt.Size = new System.Drawing.Size(64, 13);
+            this.lbl_fromdt.TabIndex = 7;
+            this.lbl_fromdt.Text = "From Date :";
+            // 
+            // lbl_todate
+            // 
+            this.lbl_todate.AutoSize = true;
+            this.lbl_todate.Location = new System.Drawing.Point(501, 17);
+            this.lbl_todate.Name = "lbl_todate";
+            this.lbl_todate.Size = new System.Drawing.Size(52, 13);
+            this.lbl_todate.TabIndex = 8;
+            this.lbl_todate.Text = "To Date :";
             // 
             // frmReports
             // 
@@ -169,6 +228,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbReports.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFromDt.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFromDt.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtToDt.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtToDt.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -183,5 +246,9 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnExportGrid;
+        private System.Windows.Forms.Label lbl_todate;
+        private System.Windows.Forms.Label lbl_fromdt;
+        private DevExpress.XtraEditors.DateEdit txtToDt;
+        private DevExpress.XtraEditors.DateEdit txtFromDt;
     }
 }
