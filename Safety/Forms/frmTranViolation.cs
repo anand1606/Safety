@@ -267,7 +267,7 @@ namespace Safety.Forms
             txtViolationID.Text = txtViolationID.Text.Trim().ToString();
 
             DataSet ds = new DataSet();
-            string sql = "select * From MastViolation where  ViolationID ='" + txtViolationID.Text.Trim() + "' ";
+            string sql = "select * From MastViolation where  ViolationID ='" + txtViolationID.Text.Trim() + "'  ";
 
             ds = Utils.Helper.GetData(sql, Utils.Helper.constr);
             bool hasRows = ds.Tables.Cast<DataTable>()

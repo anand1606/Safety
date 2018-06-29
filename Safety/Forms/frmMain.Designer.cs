@@ -32,7 +32,6 @@
             this.mnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDBConn = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuUserRights = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuInspTypeMast = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuUser = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuChangePass = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuLogOff = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +41,7 @@
             this.mnuEmailConfig = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTranS = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTranSafetyViolation = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuToolsMast = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuReports = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRptOthers = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +52,7 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.stsUserDesc = new System.Windows.Forms.ToolStripStatusLabel();
             this.stsExtra = new System.Windows.Forms.ToolStripStatusLabel();
-            this.mnuToolsMast = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuInspTypeMast = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -76,8 +76,7 @@
             // 
             this.mnuAdmin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuDBConn,
-            this.mnuUserRights,
-            this.mnuInspTypeMast});
+            this.mnuUserRights});
             this.mnuAdmin.Name = "mnuAdmin";
             this.mnuAdmin.Size = new System.Drawing.Size(55, 20);
             this.mnuAdmin.Text = "&Admin";
@@ -85,23 +84,16 @@
             // mnuDBConn
             // 
             this.mnuDBConn.Name = "mnuDBConn";
-            this.mnuDBConn.Size = new System.Drawing.Size(196, 22);
+            this.mnuDBConn.Size = new System.Drawing.Size(187, 22);
             this.mnuDBConn.Text = "Database Connection";
             this.mnuDBConn.Click += new System.EventHandler(this.mnuDBConn_Click);
             // 
             // mnuUserRights
             // 
             this.mnuUserRights.Name = "mnuUserRights";
-            this.mnuUserRights.Size = new System.Drawing.Size(196, 22);
+            this.mnuUserRights.Size = new System.Drawing.Size(187, 22);
             this.mnuUserRights.Text = "User Rights";
             this.mnuUserRights.Click += new System.EventHandler(this.mnuUserRights_Click);
-            // 
-            // mnuInspTypeMast
-            // 
-            this.mnuInspTypeMast.Name = "mnuInspTypeMast";
-            this.mnuInspTypeMast.Size = new System.Drawing.Size(196, 22);
-            this.mnuInspTypeMast.Text = "Inspection Type Master";
-            this.mnuInspTypeMast.Click += new System.EventHandler(this.mnuInspTypeMast_Click);
             // 
             // mnuUser
             // 
@@ -131,7 +123,8 @@
             this.mnuMast.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuVendorMast,
             this.mnuViolationMast,
-            this.mnuEmailConfig});
+            this.mnuEmailConfig,
+            this.mnuInspTypeMast});
             this.mnuMast.Name = "mnuMast";
             this.mnuMast.Size = new System.Drawing.Size(60, 20);
             this.mnuMast.Text = "&Masters";
@@ -139,21 +132,21 @@
             // mnuVendorMast
             // 
             this.mnuVendorMast.Name = "mnuVendorMast";
-            this.mnuVendorMast.Size = new System.Drawing.Size(180, 22);
+            this.mnuVendorMast.Size = new System.Drawing.Size(196, 22);
             this.mnuVendorMast.Text = "Vendor Master";
             this.mnuVendorMast.Click += new System.EventHandler(this.mnuVendorMast_Click);
             // 
             // mnuViolationMast
             // 
             this.mnuViolationMast.Name = "mnuViolationMast";
-            this.mnuViolationMast.Size = new System.Drawing.Size(180, 22);
+            this.mnuViolationMast.Size = new System.Drawing.Size(196, 22);
             this.mnuViolationMast.Text = "Violation Master";
             this.mnuViolationMast.Click += new System.EventHandler(this.mnuReasonMast_Click);
             // 
             // mnuEmailConfig
             // 
             this.mnuEmailConfig.Name = "mnuEmailConfig";
-            this.mnuEmailConfig.Size = new System.Drawing.Size(180, 22);
+            this.mnuEmailConfig.Size = new System.Drawing.Size(196, 22);
             this.mnuEmailConfig.Text = "Email Configuration";
             this.mnuEmailConfig.Click += new System.EventHandler(this.mnuEmailConfig_Click);
             // 
@@ -172,6 +165,13 @@
             this.mnuTranSafetyViolation.Size = new System.Drawing.Size(176, 22);
             this.mnuTranSafetyViolation.Text = "Safety Violation";
             this.mnuTranSafetyViolation.Click += new System.EventHandler(this.mnuTranSafetyViolation_Click);
+            // 
+            // mnuToolsMast
+            // 
+            this.mnuToolsMast.Name = "mnuToolsMast";
+            this.mnuToolsMast.Size = new System.Drawing.Size(176, 22);
+            this.mnuToolsMast.Text = "Tools/Equp. Master";
+            this.mnuToolsMast.Click += new System.EventHandler(this.mnuToolsMast_Click);
             // 
             // mnuReports
             // 
@@ -246,12 +246,12 @@
             this.stsExtra.Name = "stsExtra";
             this.stsExtra.Size = new System.Drawing.Size(0, 17);
             // 
-            // mnuToolsMast
+            // mnuInspTypeMast
             // 
-            this.mnuToolsMast.Name = "mnuToolsMast";
-            this.mnuToolsMast.Size = new System.Drawing.Size(176, 22);
-            this.mnuToolsMast.Text = "Tools/Equp. Master";
-            this.mnuToolsMast.Click += new System.EventHandler(this.mnuToolsMast_Click);
+            this.mnuInspTypeMast.Name = "mnuInspTypeMast";
+            this.mnuInspTypeMast.Size = new System.Drawing.Size(196, 22);
+            this.mnuInspTypeMast.Text = "Inspection Type Master";
+            this.mnuInspTypeMast.Click += new System.EventHandler(this.mnuInspTypeMast_Click);
             // 
             // frmMain
             // 
@@ -301,8 +301,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnuViolationMast;
         private System.Windows.Forms.ToolStripMenuItem mnuTranSafetyViolation;
         private System.Windows.Forms.ToolStripMenuItem mnuEmailConfig;
-        private System.Windows.Forms.ToolStripMenuItem mnuInspTypeMast;
         private System.Windows.Forms.ToolStripMenuItem mnuToolsMast;
+        private System.Windows.Forms.ToolStripMenuItem mnuInspTypeMast;
 
 
     }

@@ -251,7 +251,7 @@ namespace Safety.Forms
             txtInspTypeCode.Text = txtInspTypeCode.Text.Trim().ToString();
 
             DataSet ds = new DataSet();
-            string sql = "select * From MastInspType where  InspTypeCode ='" + txtInspTypeCode.Text.Trim() + "' ";
+            string sql = "select * From MastInspType where  InspTypeID ='" + txtInspTypeCode.Text.Trim() + "' ";
 
             ds = Utils.Helper.GetData(sql, Utils.Helper.constr);
             bool hasRows = ds.Tables.Cast<DataTable>()
